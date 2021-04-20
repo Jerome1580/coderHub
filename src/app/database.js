@@ -11,6 +11,10 @@ const connections = mysql.createPool({
 
 
 connections.getConnection((err,conn)=>{
+  if(err){
+    console.log('连接mysql错误: ', err);
+    process.exit(1)
+  }
   conn.connect((err)=>{
     if(err){
       console.log('失败');
